@@ -27,7 +27,7 @@ describe('SingIn Case', () => {
     expect(isIdDecodedTokenEqualIdClient).toBeTruthy()
   })
 
-  it('shoulb not be able to client make sing in unexist in system', async () => {
+  it('should not be able to client make sing in unexist in system', async () => {
     expect(
       async () =>
         await singIn.execute({

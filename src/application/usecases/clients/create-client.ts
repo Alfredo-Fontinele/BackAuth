@@ -8,7 +8,7 @@ type CreateClientRequest = {
   password: string
 }
 
-type CreateClientResponse = void
+type CreateClientResponse = Client
 
 @Injectable()
 export class CreateClient {
@@ -21,6 +21,6 @@ export class CreateClient {
       password: request.password,
     })
 
-    this.clientRepository.create(client)
+    return await this.clientRepository.create(client)
   }
 }

@@ -4,8 +4,9 @@ import { AppModule } from './app.module'
 import { Constants } from './infra/constants'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true })
   const PORT = Constants.PORT
+
+  const app = await NestFactory.create(AppModule, { cors: true })
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -14,7 +15,7 @@ async function bootstrap() {
   )
 
   await app.listen(PORT, () => {
-    console.log(`App is running on http://localhost:${PORT}`)
+    console.log(`\nApp is running on http://localhost:${PORT}\n`)
   })
 }
 bootstrap()

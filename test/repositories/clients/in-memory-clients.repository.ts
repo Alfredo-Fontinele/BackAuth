@@ -4,8 +4,13 @@ import { ClientRepository } from '@application/repositories/client.repository'
 export class InMemoryClientRepository implements ClientRepository {
   public clients: Client[] = []
 
-  async create(client: Client): Promise<void> {
+  async create(client: Client): Promise<Client> {
     this.clients.push(client)
+    return client
+  }
+
+  async findAll(): Promise<Client[]> {
+    return this.clients
   }
 
   async findById(clientId: string): Promise<Client | null> {

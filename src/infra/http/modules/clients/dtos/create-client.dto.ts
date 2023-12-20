@@ -16,7 +16,7 @@ export const createClientDTOSchema = y.object({
     .required()
     .oneOf(
       [y.ref('password')],
-      // 'password and confirm_passwords must be equals',
+      'password and confirm_passwords must be equals',
     ),
 })
 
