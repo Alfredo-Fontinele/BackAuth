@@ -56,14 +56,4 @@ export class PrismaClientRepository implements ClientRepository {
 
     return PrismaClientMapper.toDomain(foundClientByEmail)
   }
-
-  async verifyEmailExist(email: string): Promise<boolean> {
-    const existEmail = await this.prismaService.client.findFirst({
-      where: {
-        email,
-      },
-    })
-
-    return Boolean(existEmail)
-  }
 }

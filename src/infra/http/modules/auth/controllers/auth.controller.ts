@@ -24,7 +24,6 @@ export class AuthController {
   ) {}
 
   @Post('sign-in')
-  @UseGuards(ValidationTokenGuard)
   @ApiOperation({ summary: 'Login' })
   @ApiResponse({
     status: 200,
@@ -41,6 +40,7 @@ export class AuthController {
   }
 
   @Get('profile')
+  @UseGuards(ValidationTokenGuard)
   @ApiOperation({ summary: 'Get Profile' })
   @ApiResponse({
     status: 200,

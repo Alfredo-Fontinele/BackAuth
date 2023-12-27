@@ -5,5 +5,4 @@ export abstract class ClientRepository {
   abstract findAll(): Promise<Client[]>
   abstract findById(clientId: string): Promise<Client | null>
   abstract findByEmail(email: string): Promise<Client | null>
-  abstract verifyEmailExist(email: string): Promise<boolean>
 }

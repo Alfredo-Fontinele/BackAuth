@@ -11,7 +11,6 @@ import {
   FindClientDTOResponse200,
   FindClientDTOResponse404,
 } from '../dtos/find-client-response.dto'
-import { ClientAlreadyExistGuard } from '../guards/client-already-exist.guard'
 import { ClientMapper } from '../mappers/client.mapper'
 
 @Controller('clients')
@@ -24,7 +23,6 @@ export class ClientController {
   ) {}
 
   @Post()
-  @UseGuards(ClientAlreadyExistGuard)
   @ApiOperation({ summary: 'Create Client' })
   @ApiResponse({
     status: 201,

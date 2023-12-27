@@ -1,35 +1,3 @@
-// import { Client } from '@application/entities/client.entity'
-// import { ClientRepository } from '@application/repositories/client.repository'
-// import { Injectable, NotFoundException } from '@nestjs/common'
-
-// export type ValidationTokenResponse = {
-//   sub: string
-//   email: string
-//   iat: number
-//   exp: number
-// }
-
-// type GetProfileRequest = {
-//   email: string
-// }
-
-// type GetProfileResponse = Client
-
-// @Injectable()
-// export class GetProfile {
-//   constructor(private clientRepository: ClientRepository) {}
-
-//   async execute(request: GetProfileRequest): Promise<GetProfileResponse> {
-//     const foundClientByEmail = await this.clientRepository.findByEmail(
-//       request.email,
-//     )
-//     if (!foundClientByEmail) {
-//       throw new NotFoundException('client not found with get profile')
-//     }
-//     return foundClientByEmail
-//   }
-// }
-
 import { Client } from '@application/entities/client.entity'
 import { ClientRepository } from '@application/repositories/client.repository'
 import {
