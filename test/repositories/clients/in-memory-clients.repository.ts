@@ -1,12 +1,28 @@
 import { Client } from '@application/entities/client.entity'
 import { ClientRepository } from '@application/repositories/client.repository'
+import { HashService } from '@helpers/hash-service'
 
 export class InMemoryClientRepository implements ClientRepository {
   public clients: Client[] = []
 
   async create(client: Client): Promise<Client> {
-    this.clients.push(client)
-    return client
+    const hashPassword = await HashService.hashPassword(client.props.password)
+    const alreadyExistClientByEmail = this.clients.find(
+      (c) => c.props.email === client.props.email,
+    )
+    if (alreadyExistClientByEmail) {
+      return alreadyExistClientByEmail
+    }
+    const clientWithHashPassword = new Client(
+      {
+        name: client.props.name,
+        email: client.props.email,
+        password: hashPassword,
+      },
+      client.id,
+    )
+    this.clients.push(clientWithHashPassword)
+    return clientWithHashPassword
   }
 
   async findAll(): Promise<Client[]> {
@@ -31,5 +47,12 @@ export class InMemoryClientRepository implements ClientRepository {
       return null
     }
     return existClientByEmail
+  }
+
+  async verifyEmailExist(email: string): Promise<boolean> {
+    const existClientByEmail = this.clients.find(
+      (client) => client.props.email === email,
+    )
+    return Boolean(existClientByEmail)
   }
 }

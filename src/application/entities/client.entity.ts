@@ -1,6 +1,6 @@
 import { Entity } from '@core/domain/entity'
 
-type ClientProps = {
+export type ClientProps = {
   name: string
   email: string
   password: string

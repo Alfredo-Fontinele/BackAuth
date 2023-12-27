@@ -1,5 +1,5 @@
 import { DecodeTokenResponse, jwtService } from '@helpers/jwt-service'
-import { NotFoundException } from '@nestjs/common'
+import { UnauthorizedException } from '@nestjs/common'
 import { makeClient } from '@test/factories/make-client.factory'
 import { InMemoryClientRepository } from '@test/repositories/clients/in-memory-clients.repository'
 import { SignIn } from './sign-in'
@@ -10,8 +10,7 @@ describe('SingIn Case', () => {
 
   it('should be able to client make sing in', async () => {
     const client = makeClient()
-
-    clientRepository.create(client)
+    await clientRepository.create(client)
 
     const response = await singIn.execute({
       email: client.props.email,
@@ -23,7 +22,6 @@ describe('SingIn Case', () => {
     )
 
     const isIdDecodedTokenEqualIdClient = decodeToken.sub === client.id
-
     expect(isIdDecodedTokenEqualIdClient).toBeTruthy()
   })
 
@@ -34,6 +32,6 @@ describe('SingIn Case', () => {
           email: 'fake@gmail.com',
           password: 'fakepassword',
         }),
-    ).rejects.toThrow(NotFoundException)
+    ).rejects.toThrow(UnauthorizedException)
   })
 })

@@ -1,10 +1,11 @@
 import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
-import { Constants } from './infra/constants'
+import { APIDocs } from './docs/config'
+import { CONSTANTS } from './infra/CONSTANTS'
 
 async function bootstrap() {
-  const PORT = Constants.PORT
+  const PORT = CONSTANTS.PORT
 
   const app = await NestFactory.create(AppModule, { cors: true })
 
@@ -13,6 +14,8 @@ async function bootstrap() {
       whitelist: true,
     }),
   )
+
+  APIDocs.init(app)
 
   await app.listen(PORT, () => {
     console.log(`\nApp is running on http://localhost:${PORT}\n`)

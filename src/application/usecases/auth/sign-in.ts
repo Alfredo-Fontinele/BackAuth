@@ -1,11 +1,8 @@
 import { ClientRepository } from '@application/repositories/client.repository'
-import { Constants } from '@infra/constants'
+import { HashService } from '@helpers/hash-service'
+import { CONSTANTS } from '@infra/CONSTANTS'
 
-import {
-  Injectable,
-  NotFoundException,
-  UnauthorizedException,
-} from '@nestjs/common'
+import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 
 type SignInRequest = {
@@ -25,20 +22,30 @@ export class SignIn {
   ) {}
 
   async execute(request: SignInRequest): Promise<SignInResponse> {
-    const client = await this.clientRepository.findByEmail(request.email)
+    const clientExistByEmail = await this.clientRepository.findByEmail(
+      request.email,
+    )
 
-    if (!client) {
-      throw new NotFoundException('client not found')
+    if (!clientExistByEmail) {
+      throw new UnauthorizedException('client not found')
     }
 
-    if (client.props.password !== request.password) {
+    const isValidPassword = await HashService.comparePassword(
+      request.password,
+      clientExistByEmail.props.password,
+    )
+
+    if (!isValidPassword) {
       throw new UnauthorizedException('client not authenticated')
     }
 
-    const payload = { sub: client.id, email: client.props.email }
+    const payload = {
+      sub: clientExistByEmail.id,
+      email: clientExistByEmail.props.email,
+    }
 
     const access_token = await this.jwtService.signAsync(payload, {
-      secret: Constants.SECRET,
+      secret: CONSTANTS.SECRET,
     })
 
     return {

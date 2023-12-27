@@ -17,7 +17,7 @@ export class FindClientById {
   ): Promise<FindClientByIdResponse> {
     const existClient = await this.clientRepository.findById(request.clientId)
     if (!existClient) {
-      throw new NotFoundException()
+      throw new NotFoundException('client not found')
     }
     return existClient
   }

@@ -22,8 +22,10 @@
     "resolveJsonModule": true,
     "paths": {
       "@application/*": ["./src/application/*"],
+      "@docs/*": ["./src/docs/*"],
       "@core/*": ["./src/core/*"],
       "@helpers/*": ["./src/helpers/*"],
+      "@utils/*": ["./src/utils/*"],
       "@infra/*": ["./src/infra/*"],
       "@test/*": ["./test/*"]
     }
