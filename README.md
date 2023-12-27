@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://i.pinimg.com/originals/1c/54/1c54f7b06d7723c21afc5035bf88a5ef.png" width="200" alt="API Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://i.pinimg.com/originals/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.png" width="200" alt="API Logo" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
@@ -28,7 +28,7 @@
 $ yarn install
 ```
 
-### Configure o arquivo .env com base no exemplo inicial abaixo e tenha o PostgreSQL instalado e configurado na sua máquina
+## Configure o arquivo .env com base no exemplo inicial abaixo e tenha o PostgreSQL instalado e configurado na sua máquina
 
 ```bash
 PORT=             // Número da Porta -> ex: 3333
