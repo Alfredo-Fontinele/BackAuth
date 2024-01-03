@@ -65,4 +65,4 @@ $ acessando documentação em http://localhost:3333/docs
 
 # Thanks!
 
-- Obs: Perceba que tem um arquivo na raiz do projeto chamado "Insomnia_2023-12-27.json". Você pode copiá-lo e importá-lo em algum Client API para testar os endpoints ppor conta própria, como o Insomnia ou Postman por exemplo
+- Obs: Perceba que tem um arquivo na raiz do projeto chamado "Insomnia_2023-12-27.json". Você pode copiá-lo e importá-lo em algum Client API para testar os endpoints ppor conta própria no Insomnia
