@@ -8,10 +8,37 @@ datasource db {
 }
 
 model Client {
-  id String @id @default(uuid())
-  name String 
-  email String @unique
-  password String
+  id         String   @id @default(uuid())
+  name       String
+  email      String   @unique
+  password   String
+  created_at DateTime @default(now())
+
+  product_client ProductClient[]
 
   @@map("clients")
+}
+
+model Product {
+  id             String          @id @default(uuid())
+  name           String          @unique
+  description    String
+  quantity       Decimal
+  price          Decimal
+  created_at     DateTime        @default(now())
+  product_client ProductClient[]
+
+  @@map("products")
+}
+
+model ProductClient {
+  id String @id @default(uuid())
+
+  client    Client @relation(fields: [id_client], references: [id])
+  id_client String
+
+  product    Product @relation(fields: [id_product], references: [id])
+  id_product String
+
+  @@map("products_clients")
 }

@@ -1,6 +1,6 @@
 import { Client } from '@application/entities/client.entity'
 import { BadRequestException } from '@nestjs/common'
-import { InMemoryClientRepository } from '@test/repositories/clients/in-memory-clients.repository'
+import { InMemoryClientRepository } from '@test/repositories/in-memory-clients.repository'
 import { CreateClient } from './create-client'
 
 describe('Create Client Case', () => {

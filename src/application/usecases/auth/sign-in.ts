@@ -1,7 +1,6 @@
 import { ClientRepository } from '@application/repositories/client.repository'
 import { HashService } from '@helpers/hash-service'
 import { CONSTANTS } from '@infra/CONSTANTS'
-
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 

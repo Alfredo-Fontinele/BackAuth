@@ -37,6 +37,10 @@ export const APIDocs = {
           name: 'Authentication',
           tags: ['auth'],
         },
+        {
+          name: 'Products',
+          tags: ['product'],
+        },
       ],
     }
 

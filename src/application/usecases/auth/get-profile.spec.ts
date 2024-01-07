@@ -1,7 +1,7 @@
 import { Client } from '@application/entities/client.entity'
 import { jwtService } from '@helpers/jwt-service'
 import { makeClient } from '@test/factories/make-client.factory'
-import { InMemoryClientRepository } from '@test/repositories/clients/in-memory-clients.repository'
+import { InMemoryClientRepository } from '@test/repositories/in-memory-clients.repository'
 import { GetProfile } from './get-profile'
 import { SignIn } from './sign-in'
 

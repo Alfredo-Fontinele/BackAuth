@@ -10,9 +10,11 @@ export class InMemoryClientRepository implements ClientRepository {
     const alreadyExistClientByEmail = this.clients.find(
       (c) => c.props.email === client.props.email,
     )
+
     if (alreadyExistClientByEmail) {
       return alreadyExistClientByEmail
     }
+
     const clientWithHashPassword = new Client(
       {
         name: client.props.name,
@@ -21,6 +23,7 @@ export class InMemoryClientRepository implements ClientRepository {
       },
       client.id,
     )
+
     this.clients.push(clientWithHashPassword)
     return clientWithHashPassword
   }
@@ -33,9 +36,11 @@ export class InMemoryClientRepository implements ClientRepository {
     const existClientById = this.clients.find(
       (client) => client.id === clientId,
     )
+
     if (!existClientById) {
       return null
     }
+
     return existClientById
   }
 
@@ -43,9 +48,11 @@ export class InMemoryClientRepository implements ClientRepository {
     const existClientByEmail = this.clients.find(
       (client) => client.props.email === email,
     )
+
     if (!existClientByEmail) {
       return null
     }
+
     return existClientByEmail
   }
 
@@ -53,6 +60,7 @@ export class InMemoryClientRepository implements ClientRepository {
     const existClientByEmail = this.clients.find(
       (client) => client.props.email === email,
     )
+
     return Boolean(existClientByEmail)
   }
 }

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator'
 
-export class CreateClientDTORequest {
+export class CreateClientRequest_DTO {
   @ApiProperty({
     description: 'name must be valid',
     example: 'Razy Igarashi',

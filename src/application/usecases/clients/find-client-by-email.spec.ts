@@ -1,6 +1,6 @@
 import { Client } from '@application/entities/client.entity'
 import { makeClient } from '@test/factories/make-client.factory'
-import { InMemoryClientRepository } from '@test/repositories/clients/in-memory-clients.repository'
+import { InMemoryClientRepository } from '@test/repositories/in-memory-clients.repository'
 import { FindClientByEmail } from './find-client-by-email'
 
 describe('Find Client By Email Case', () => {

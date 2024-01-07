@@ -4,12 +4,12 @@ import { FindClientById } from '@application/usecases/clients/find-client-by-id'
 import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common'
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { ValidationTokenGuard } from '../../auth/guards/validation-token.guard'
-import { CreateClientDTORequest } from '../dtos/create-client-request.dto'
-import { CreateClientDTOResponse201 } from '../dtos/create-client-response.dto'
-import { FindAllClientsDTOResponse200 } from '../dtos/find-all-clients-response.dto'
+import { CreateClientRequest_DTO } from '../dtos/create-client-request.dto'
+import { CreateClientResponse201_DTO } from '../dtos/create-client-response.dto'
+import { FindAllClientsResponse200_DTO } from '../dtos/find-all-clients-response.dto'
 import {
-  FindClientDTOResponse200,
-  FindClientDTOResponse404,
+  FindClientResponse200_DTO,
+  FindClientResponse404_DTO,
 } from '../dtos/find-client-response.dto'
 import { ClientMapper } from '../mappers/client.mapper'
 
@@ -27,9 +27,9 @@ export class ClientController {
   @ApiResponse({
     status: 201,
     description: 'created',
-    type: CreateClientDTOResponse201,
+    type: CreateClientResponse201_DTO,
   })
-  async create(@Body() payload: CreateClientDTORequest) {
+  async create(@Body() payload: CreateClientRequest_DTO) {
     const response = await this.createClientCase.execute(payload)
     return ClientMapper.toHTTP(response)
   }
@@ -40,7 +40,7 @@ export class ClientController {
   @ApiResponse({
     status: 200,
     description: 'success',
-    type: FindAllClientsDTOResponse200,
+    type: FindAllClientsResponse200_DTO,
     isArray: true,
   })
   async findAll() {
@@ -54,14 +54,14 @@ export class ClientController {
   @ApiResponse({
     status: 200,
     description: 'success',
-    type: FindClientDTOResponse200,
+    type: FindClientResponse200_DTO,
   })
   @ApiResponse({
     status: 404,
     description: 'not found',
-    type: FindClientDTOResponse404,
+    type: FindClientResponse404_DTO,
   })
-  async findClientById(@Param('id') id: string) {
+  async findById(@Param('id') id: string) {
     const response = await this.findClientByIdCase.execute({
       clientId: id,
     })

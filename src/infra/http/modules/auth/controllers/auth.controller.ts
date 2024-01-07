@@ -4,8 +4,8 @@ import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common'
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { Request } from 'express'
 import {
-  FindClientDTOResponse200,
-  FindClientDTOResponse404,
+  FindClientResponse200_DTO,
+  FindClientResponse404_DTO,
 } from '../../clients/dtos/find-client-response.dto'
 import { SignInRequestDTO } from '../dtos/sign-in-request.dto'
 import {
@@ -45,12 +45,12 @@ export class AuthController {
   @ApiResponse({
     status: 200,
     description: 'success',
-    type: FindClientDTOResponse200,
+    type: FindClientResponse200_DTO,
   })
   @ApiResponse({
     status: 404,
     description: 'not found',
-    type: FindClientDTOResponse404,
+    type: FindClientResponse404_DTO,
   })
   async getProfile(@Req() req: Request) {
     const response = await this.getProfileCase.execute({

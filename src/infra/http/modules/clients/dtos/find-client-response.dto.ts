@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger'
 
-export class FindClientDTOResponse200 {
+export class FindClientResponse200_DTO {
   @ApiProperty({
     description: 'id',
     example: 'd73d4f51-9803-466e-aa29-cef24cd6f6e',
@@ -25,7 +25,7 @@ export class FindClientDTOResponse200 {
   created_at: string
 }
 
-export class FindClientDTOResponse404 {
+export class FindClientResponse404_DTO {
   @ApiProperty({
     example: 'client not found by id',
     description: 'message error from server',

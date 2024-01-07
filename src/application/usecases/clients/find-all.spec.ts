@@ -1,5 +1,5 @@
 import { makeClient } from '@test/factories/make-client.factory'
-import { InMemoryClientRepository } from '@test/repositories/clients/in-memory-clients.repository'
+import { InMemoryClientRepository } from '@test/repositories/in-memory-clients.repository'
 import { FindAllClients } from './find-all'
 
 describe('Find All Clients Case', () => {
