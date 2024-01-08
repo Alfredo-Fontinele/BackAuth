@@ -23,11 +23,11 @@ export const APIDocs = {
       sortPropsAlphabetically: true,
       hideDownloadButton: false,
       hideHostname: false,
-      auth: {
-        enabled: true,
-        user: 'admin',
-        password: '123',
-      },
+      // auth: {
+      //   enabled: true,
+      //   user: 'admin',
+      //   password: '123',
+      // },
       tagGroups: [
         {
           name: 'Clients',
