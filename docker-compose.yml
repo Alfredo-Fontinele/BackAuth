@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    env_file:
+      - .env
+
+  api:
+    container_name: backend
+    depends_on:
+      - postgres
+    build:
+      context: .
+    ports:
+      - "3333:3333"
+    env_file:
+      - .env
+    command: sh -c "npx prisma migrate dev && npm run build && npm run start:prod"

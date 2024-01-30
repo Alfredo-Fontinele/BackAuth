@@ -1,9 +1,9 @@
-import { CONSTANTS } from '@infra/CONSTANTS'
+import { CONSTANTS } from '@infra/constants'
 import {
-  CanActivate,
-  ExecutionContext,
-  Injectable,
-  UnauthorizedException,
+    CanActivate,
+    ExecutionContext,
+    Injectable,
+    UnauthorizedException,
 } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { extractToken } from '@utils/extract-token'

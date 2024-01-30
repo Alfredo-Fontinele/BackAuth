@@ -1,6 +1,6 @@
 import { GetProfile } from '@application/usecases/auth/get-profile'
 import { SignIn } from '@application/usecases/auth/sign-in'
-import { CONSTANTS } from '@infra/CONSTANTS'
+import { CONSTANTS } from '@infra/constants'
 import { DatabaseModule } from '@infra/database/database.module'
 import { Module } from '@nestjs/common'
 import { JwtModule } from '@nestjs/jwt'

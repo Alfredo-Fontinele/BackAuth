@@ -2,7 +2,7 @@ import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 import { APIDocs } from './docs/config'
-import { CONSTANTS } from './infra/CONSTANTS'
+import { CONSTANTS } from './infra/constants'
 
 async function bootstrap() {
   const PORT = CONSTANTS.PORT
